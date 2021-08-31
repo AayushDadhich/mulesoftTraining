@@ -22,17 +22,6 @@ types:
               output: !include /exchange_modules/68ef9520-24e9-4cf2-b2f5-620025690913/training-american-flights-example/1.0.1/AmericanFlightsExample.raml
   
   post:
-      body:
-        application/json:
-          type: AmericanFlight
-          examples:
-            input: !include examples/AmericanFlightNoIDExample.raml
-      responses:
-        201:
-          body:
-            application/json:
-              example:
-                message: "Flight Added Successfully"
   
   /{ID}:
     get:
@@ -52,7 +41,18 @@ types:
               example:
                 message: Flight deleted (but not really)
                 
-    
+    post:
+      body:
+        application/json:
+          type: AmericanFlight
+          examples:
+            input: !include examples/AmericanFlightNoIDExample.raml
+      responses:
+        201:
+          body:
+            application/json:
+              example:
+                message: "Flight Added Successfully"
               
           
       
